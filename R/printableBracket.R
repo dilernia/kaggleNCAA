@@ -57,7 +57,11 @@ printableBracket <- function(bracket, add_seed=TRUE, add_prob=TRUE, w=NULL){
 
   #Add probs
   if(add_prob){
-    bracket[,teamname := paste0(teamname, '-(', round(prob, 2), ')')]
+    if(cum_prob) {
+    bracket[,team_name := paste0(team_name, ' (', sprintf(paste0("%1.", 2, "f%%"), 100*prob), ')')]
+    } else {
+      bracket[,team_name := paste0(team_name, ' (', sprintf(paste0("%1.", 2, "f%%"), 100*pred), ')')]
+    }
   }
 
   #Add printing positions
