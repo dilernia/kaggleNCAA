@@ -51,7 +51,7 @@ printableBracket <- function(bracket, add_seed=TRUE, add_prob=TRUE, w=NULL){
     bracket_seeds[,seed_int := as.integer(substr(seed, 2, 3))]
     bracket <- merge(bracket, bracket_seeds[,list(teamid, women, seed_int)], by=KEYS)
 
-    bracket_seeds[,teamname := paste0(teamname, '-(', seed_int, ')')]
+    bracket_seeds[,teamname := paste0(seed_int, " ", teamname)]
     bracket[,teamname := paste0(teamname, '-(', seed_int, ')')]
   }
 
