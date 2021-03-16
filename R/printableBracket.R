@@ -15,7 +15,7 @@
 #' \url{http://www.kaggle.com/c/march-machine-learning-mania-2015/forums/t/12627/simulating-the-tournament}
 #' \url{http://www.kaggle.com/c/march-machine-learning-mania/forums/t/7309/printable-bracket-in-r}
 #' \url{https://github.com/chmullig/marchmania/blob/master/bracket.R}
-printableBracket <- function(bracket, add_seed=TRUE, add_prob=TRUE, w=NULL, cum_prob = TRUE, num_digits = 2){
+printableBracket <- function(bracket, add_seed=TRUE, add_prob=TRUE, w=NULL, cum_prob = TRUE, num_digits = 2, winnerLogo = ""){
   utils::data('seed_print_positions', package='kaggleNCAA', envir=environment())
   utils::data('slot_print_positions', package='kaggleNCAA', envir=environment())
   utils::data('tourney_seeds', package='kaggleNCAA', envir=environment())
