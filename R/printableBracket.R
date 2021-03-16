@@ -15,7 +15,7 @@
 #' \url{http://www.kaggle.com/c/march-machine-learning-mania-2015/forums/t/12627/simulating-the-tournament}
 #' \url{http://www.kaggle.com/c/march-machine-learning-mania/forums/t/7309/printable-bracket-in-r}
 #' \url{https://github.com/chmullig/marchmania/blob/master/bracket.R}
-printableBracket <- function(bracket, add_seed=TRUE, add_prob=TRUE, w=NULL, cum_prob = TRUE, num_digits = 2){
+printableBracket <- function(bracket, add_seed=TRUE, add_prob=TRUE, w=NULL, cum_prob = TRUE){
   utils::data('seed_print_positions', package='kaggleNCAA', envir=environment())
   utils::data('slot_print_positions', package='kaggleNCAA', envir=environment())
   utils::data('tourney_seeds', package='kaggleNCAA', envir=environment())
@@ -58,9 +58,9 @@ printableBracket <- function(bracket, add_seed=TRUE, add_prob=TRUE, w=NULL, cum_
   #Add probs
   if(add_prob){
     if(cum_prob) {
-    bracket[,team_name := paste0(team_name, ' (', sprintf(paste0("%1.", num_digits, "f%%"), 100*prob), ')')]
+    bracket[,team_name := paste0(team_name, ' (', sprintf(paste0("%1.2f%%"), 100*prob), ')')]
     } else {
-      bracket[,team_name := paste0(team_name, ' (', sprintf(paste0("%1.", num_digits, "f%%"), 100*pred), ')')]
+      bracket[,team_name := paste0(team_name, ' (', sprintf(paste0("%1.2f%%"), 100*pred), ')')]
     }
   }
 
